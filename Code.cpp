@@ -6,8 +6,6 @@ struct Data {
     string nama,pekerjaan,status,alamat,tipe,ket,nik,kk,penghasilan;
 };
 
-adsdawda
-
 // Fungsi untuk menampilkan seluruh data
 void tampilkanData(const vector<Data>& data) {
     cout << endl << "Data saat ini:" << endl;
