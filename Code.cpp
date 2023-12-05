@@ -3,27 +3,41 @@
 using namespace std;
 
 struct Data {
-    string nama,pekerjaan,status,alamat,tipe,ket;
-    int nik1,nik2,kk;
-    float penghasilan;
+    string nama,pekerjaan,status,alamat,tipe,ket,nik,kk,penghasilan;
 };
 
 // Fungsi untuk menampilkan seluruh data
 void tampilkanData(const vector<Data>& data) {
     cout << endl << "Data saat ini:" << endl;
     for (const auto& d : data) {
-        cout << "Nama: " << d.nama << ", Umur: " << d.nik1 << d.nik2 << endl;
+        cout << "Nama: " << d.nama << ", No KK: " << d.kk << ", No NIK: " << d.nik << ", Pekerjaan: " << d.pekerjaan;
+        cout << ", Penghasilan: Rp." << d.penghasilan << ", Status: " << d.status << ", Alamat Desa: " << d.alamat << ", Tipe Sembako: " << d.tipe;
+		cout << ", Ket: " << d.ket << endl << endl;
     }
 }
 
 // Fungsi untuk menambahkan data baru
 void tambahData(vector<Data>& data) {
     Data newData;
+    cout << endl;
     cout << "Masukkan Nama: ";
     cin >> newData.nama;
-    cout << "Masukkan NIK: ";
-    cin >> newData.nik1;
-    cin >> newData.nik2;
+    cout << "Masukkan No KK: ";
+    cin >> newData.kk;
+    cout << "Masukan No NIK: ";
+    cin >> newData.nik;
+    cout << "Masukan Pekerjaan: ";
+    cin >> newData.pekerjaan;
+    cout << "Masukan Penghasilan: ";
+    cin >> newData.penghasilan;
+    cout << "Masukan Status: ";
+    cin >> newData.status;
+    cout << "Masukan Alamat Desa: ";
+    cin >> newData.alamat;
+    cout << "Masukan Tipe Sembako: ";
+    cin >> newData.tipe;
+    cout << "Masukan Ket: ";
+    cin >> newData.ket;
 
     data.push_back(newData);
     cout << "Data berhasil ditambahkan." << endl;
@@ -31,18 +45,78 @@ void tambahData(vector<Data>& data) {
 
 // Fungsi untuk mengedit data
 void editData(vector<Data>& data) {
-    string nama;
-    cout << "Masukkan Nama yang ingin diedit: ";
-    cin >> nama;
-
-    for (auto& d : data) {
-        if (d.nama == nama) {
-            cout << "Masukkan NIK baru: ";
-            cin >> d.nik1 >> d.nik2;
-            cout << "Data berhasil diubah." << endl;
-            return;
-        }
-    }
+    string nama,pilihan;
+    
+    cout << "Apakah ingin melihat data dulu ?" << endl;
+    cout << "(Y/N) ";
+    cin >> pilihan;
+    
+    if(pilihan=="y"){
+    	
+    	tampilkanData(data);
+    	
+    	cout << "Masukan Nama yang ingin diedit: ";
+    	cin >> nama;
+    	
+    	for(auto& d : data){
+    		if(d.nama == nama){
+    			cout << "Masukan Nama baru: ";
+    			cin >> d.nama;
+    			cout << "Masukan No KK baru: ";
+    			cin >> d.kk;
+    			cout << "Masukan No NIK baru: ";
+    			cin >> d.nik;
+    			cout << "Masukan Pekerjaan baru: ";
+    			cin >> d.pekerjaan;
+    			cout << "Masukan Penghasilan baru: ";
+    			cin >> d.penghasilan;
+    			cout << "Masukan Status baru: ";
+    			cin >> d.status;
+    			cout << "Masukan Alamat (Desa) baru: ";
+    			cin >> d.alamat;
+    			cout << "Masukan Tipe Sembako baru: ";
+    			cin >> d.tipe;
+    			cout << "Masukan Ket baru: ";
+    			cin >> d.ket;
+    			cout << "Data berhasil diubah." << endl;
+    			return;
+			}
+		}
+		
+		cout << "Data tidak ditemukan." << endl;
+		
+	}else if(pilihan=="n"){
+		for(auto& d : data){
+    		if(d.nama == nama){
+    			cout << "Masukan Nama baru: ";
+    			cin >> d.nama;
+    			cout << "Masukan No KK baru: ";
+    			cin >> d.kk;
+    			cout << "Masukan No NIK baru: ";
+    			cin >> d.nik;
+    			cout << "Masukan Pekerjaan baru: ";
+    			cin >> d.pekerjaan;
+    			cout << "Masukan Penghasilan baru: ";
+    			cin >> d.penghasilan;
+    			cout << "Masukan Status baru: ";
+    			cin >> d.status;
+    			cout << "Masukan Alamat (Desa) baru: ";
+    			cin >> d.alamat;
+    			cout << "Masukan Tipe Sembako baru: ";
+    			cin >> d.tipe;
+    			cout << "Masukan Ket baru: ";
+    			cin >> d.ket;
+    			cout << "Data berhasil diubah." << endl;
+    			return;
+			}
+		}
+		
+		cout << "Data tidak ditemukan." << endl;
+		
+	}else{
+		cout <<  "Pilihan Invalid" << endl;
+		return;
+	}
 
     cout << "Data tidak ditemukan." << endl;
 }
@@ -85,7 +159,8 @@ void hapusData(vector<Data>& data) {
 		
 		cout << "Data tidak ditemukan." << endl;
 	}else{
-		cout << "Pilihan invalid";
+		cout << "Pilihan invalid" << endl;
+		return;
 	}
 }
 
