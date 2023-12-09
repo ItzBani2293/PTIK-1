@@ -59,6 +59,84 @@ void hapusData(vector<Data>& data) {
 	}
 }
 
+// Fungsi untuk mengedit data
+void editData(vector<Data>& data) {
+    string nama,pilihan;
+    
+    cout << "Apakah ingin melihat data dulu ?" << endl;
+    cout << "(Y/N) ";
+    cin >> pilihan;
+    
+    if(pilihan=="y"){
+    	
+    	tampilkanData(data);
+    	
+    	cout << "Masukan Nama yang ingin diedit: ";
+    	cin >> nama;
+    	
+    	for(auto& d : data){
+    		if(d.nama == nama){
+    			cout << "Masukan Nama baru: ";
+    			cin >> d.nama;
+    			cout << "Masukan No KK baru: ";
+    			cin >> d.kk;
+    			cout << "Masukan No NIK baru: ";
+    			cin >> d.nik;
+    			cout << "Masukan Pekerjaan baru: ";
+    			cin >> d.pekerjaan;
+    			cout << "Masukan Penghasilan baru: ";
+    			cin >> d.penghasilan;
+    			cout << "Masukan Status baru: ";
+    			cin >> d.status;
+    			cout << "Masukan Alamat (Desa) baru: ";
+    			cin >> d.alamat;
+    			cout << "Masukan Tipe Sembako baru: ";
+    			cin >> d.tipe;
+    			cout << "Masukan Ket baru: ";
+    			cin >> d.ket;
+    			cout << "Data berhasil diubah." << endl;
+    			return;
+			}
+		}
+		
+		cout << "Data tidak ditemukan." << endl;
+		
+	}else if(pilihan=="n"){
+		for(auto& d : data){
+    		if(d.nama == nama){
+    			cout << "Masukan Nama baru: ";
+    			cin >> d.nama;
+    			cout << "Masukan No KK baru: ";
+    			cin >> d.kk;
+    			cout << "Masukan No NIK baru: ";
+    			cin >> d.nik;
+    			cout << "Masukan Pekerjaan baru: ";
+    			cin >> d.pekerjaan;
+    			cout << "Masukan Penghasilan baru: ";
+    			cin >> d.penghasilan;
+    			cout << "Masukan Status baru: ";
+    			cin >> d.status;
+    			cout << "Masukan Alamat (Desa) baru: ";
+    			cin >> d.alamat;
+    			cout << "Masukan Tipe Sembako baru: ";
+    			cin >> d.tipe;
+    			cout << "Masukan Ket baru: ";
+    			cin >> d.ket;
+    			cout << "Data berhasil diubah." << endl;
+    			return;
+			}
+		}
+		
+		cout << "Data tidak ditemukan." << endl;
+		
+	}else{
+		cout <<  "Pilihan Invalid" << endl;
+		return;
+	}
+
+    cout << "Data tidak ditemukan." << endl;
+}
+
 int main() {
     vector<Data> data;
 
@@ -67,7 +145,8 @@ int main() {
         cout << "Menu:" << endl;
         cout << "1. Tampilkan Data" << endl;
         cout << "2. Hapus Data" << endl;
-        cout << "3. Keluar"
+        cout << "3. Edit Data" << endl;
+        cout << "4. Keluar" << endl;
         cout << "Pilih menu (1-3): ";
         cin >> pilihan;
 
@@ -79,8 +158,11 @@ int main() {
             	hapusData(data);
             	break;
             case 3:
-                return 0;
+                editData(data);
                 break;
+            case 4:
+            	return 0;
+            	break;
             default:
                 cout << "Pilihan tidak valid." << endl;
         }
