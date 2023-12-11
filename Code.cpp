@@ -16,6 +16,33 @@ void tampilkanData(const vector<Data>& data) {
     }
 }
 
+// Fungsi untuk menambahkan data baru
+void tambahData(vector<Data>& data) {
+    Data newData;
+    cout << endl;
+    cout << "Masukkan Nama: ";
+    cin >> newData.nama;
+    cout << "Masukkan No KK: ";
+    cin >> newData.kk;
+    cout << "Masukan No NIK: ";
+    cin >> newData.nik;
+    cout << "Masukan Pekerjaan: ";
+    cin >> newData.pekerjaan;
+    cout << "Masukan Penghasilan: ";
+    cin >> newData.penghasilan;
+    cout << "Masukan Status: ";
+    cin >> newData.status;
+    cout << "Masukan Alamat Desa: ";
+    cin >> newData.alamat;
+    cout << "Masukan Tipe Sembako: ";
+    cin >> newData.tipe;
+    cout << "Masukan Ket: ";
+    cin >> newData.ket;
+
+    data.push_back(newData);
+    cout << "Data berhasil ditambahkan." << endl;
+}
+
 // Fungsi untuk menghapus data
 void hapusData(vector<Data>& data) {
     string nama,pilihan;
@@ -144,9 +171,10 @@ int main() {
     while (true) {
         cout << "Menu:" << endl;
         cout << "1. Tampilkan Data" << endl;
-        cout << "2. Hapus Data" << endl;
-        cout << "3. Edit Data" << endl;
-        cout << "4. Keluar" << endl;
+        cout << "2. Tambah Data" << endl;
+        cout << "3. Hapus Data" << endl;
+        cout << "4. Edit Data" << endl;
+        cout << "5. Keluar" << endl;
         cout << "Pilih menu (1-3): ";
         cin >> pilihan;
 
@@ -155,12 +183,15 @@ int main() {
                 tampilkanData(data);
                 break;
             case 2:
-            	hapusData(data);
+            	tambahData(data);
             	break;
             case 3:
-                editData(data);
+                hapusData(data);
                 break;
             case 4:
+            	editData(data);
+            	break;
+            case 5:
             	return 0;
             	break;
             default:
